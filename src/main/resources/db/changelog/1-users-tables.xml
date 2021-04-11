@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet author="dipech" id="1-1">
+        <createTable tableName="user">
+            <column name="id" type="UUID">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="email" type="VARCHAR(255)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="password" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="dipech" id="1-2">
+        <createTable tableName="user_role">
+            <column name="id" type="UUID">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="dipech" id="1-3">
+        <createTable tableName="user_user_role">
+            <column name="user_id" type="UUID">
+                <constraints nullable="false"/>
+            </column>
+            <column name="role_id" type="UUID">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="dipech" id="1-4">
+        <sql>
+            INSERT INTO "user" ("id", "email", "password") VALUES
+            (
+            '0a000a00-0000-0a0a-aa00-a00a00aaaaa0',
+            'dmitry.pechkovsky@gmail.com',
+            '$2y$12$sWxRmkTFwOlwPwSkfULZ.OIr/Inq4v9H7ii9WOs5Bk6Jv46VAQece'
+            );
+
+            INSERT INTO "user_role" ("id", "name") VALUES
+            ('2d016d09-5465-4d1a-bd20-b84d66eebcf0', 'ROLE_ADMIN'),
+            ('a8313bc1-4d05-4563-b19e-19ac678e5ef0', 'ROLE_USER');
+
+            INSERT INTO "user_user_role" ("user_id", "role_id") VALUES
+            (
+            '0a000a00-0000-0a0a-aa00-a00a00aaaaa0',
+            '2d016d09-5465-4d1a-bd20-b84d66eebcf0'
+            );
+        </sql>
+    </changeSet>
+
+</databaseChangeLog>

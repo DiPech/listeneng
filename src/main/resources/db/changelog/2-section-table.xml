@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet author="dipech" id="2-1">
+        <createTable tableName="section">
+            <column name="id" type="UUID">
+                <constraints nullable="false" unique="true" primaryKey="true"/>
+            </column>
+            <column name="user_id" type="UUID">
+                <constraints nullable="false"/>
+            </column>
+            <column name="parent_id" type="UUID"/>
+            <column name="priority" type="INT" defaultValue="0">
+                <constraints nullable="false"/>
+            </column>
+            <column name="global_priority" type="INT" defaultValue="0">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="dipech" id="2-2">
+        <sql>
+            INSERT INTO "section" ("id", "user_id", "parent_id", "priority", "global_priority", "name") VALUES
+            (
+            '0d000d00-0000-0d0d-dd00-d00d00ddddd0',
+            '0a000a00-0000-0a0a-aa00-a00a00aaaaa0',
+            null,
+            0,
+            0,
+            'All sections'
+            );
+        </sql>
+    </changeSet>
+
+</databaseChangeLog>

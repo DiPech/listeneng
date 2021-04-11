@@ -1,0 +1,5 @@
+version: "3.5"
+
+networks:
+  network_common:
+    name: ${DOCKER_NETWORK}

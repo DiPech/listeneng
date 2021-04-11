@@ -1,0 +1,29 @@
+.dark-mode {
+  &#index {
+    background-color: #3c3c3c;
+    color: #bbbbbb;
+  }
+
+  .card {
+    border-color: gray;
+    background-color: gray;
+    color: white;
+  }
+
+  .btn {
+    color: white;
+  }
+
+  .active .feather {
+    color: white;
+  }
+
+  .text-muted {
+    color: white !important;
+  }
+
+  .feather {
+    color: #c9c9c9;
+  }
+
+}

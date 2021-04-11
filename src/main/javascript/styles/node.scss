@@ -1,0 +1,73 @@
+.node {
+  margin: 0;
+
+  .subsection {
+    margin-left: 20px;
+  }
+
+  .content {
+    margin-top: -1px;
+    padding: 5px;
+    border: 1px solid black;
+
+    .checkbox {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translateX(-50%) translateY(-50%);
+    }
+
+    .name {
+      width: 100%;
+      line-height: 29px;
+      cursor: default;
+      display: inline-block;
+
+      .form-group {
+        margin-bottom: 0;
+
+        .form-control {
+          height: 31px;
+        }
+      }
+    }
+  }
+
+  .ghost {
+    opacity: 0.5;
+    background: #c8ebfb;
+  }
+
+  .columns {
+    display: grid;
+    grid-template-columns: 30px minmax(1px, auto) minmax(max-content, 2fr) minmax(1px, auto);
+
+    .column {
+      &.column-toggle {
+        position: relative;
+      }
+
+      &.column-drag {
+        position: relative;
+
+        .button {
+          cursor: pointer;
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          transform: translateX(-50%) translateY(-50%);
+        }
+      }
+
+      &.column-name {
+        padding-left: 5px;
+        padding-right: 5px;
+      }
+
+      &.column-buttons {
+
+      }
+    }
+  }
+
+}

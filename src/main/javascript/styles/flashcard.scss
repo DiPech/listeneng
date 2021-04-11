@@ -1,0 +1,18 @@
+.flashcard {
+
+  &.turned {
+    background-color: #e1e4e6;
+  }
+
+  .text {
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+
+  .buttons {
+    .btn, .btn + .btn {
+      margin-top: 10px;
+    }
+  }
+
+}

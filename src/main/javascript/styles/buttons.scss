@@ -1,0 +1,27 @@
+.dragging {
+  .buttons {
+    display: none;
+  }
+}
+
+.sections-list {
+  .buttons {
+    font-size: 0;
+    text-align: center;
+
+    .btn {
+      opacity: 0.3;
+      transition: 0.2s;
+
+      &:hover {
+        opacity: 1;
+        transition: 0.2s;
+      }
+
+      height: 20px;
+      font-size: 12px;
+      line-height: 20px;
+      padding: 0 10px;
+    }
+  }
+}

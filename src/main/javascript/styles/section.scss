@@ -1,0 +1,28 @@
+.section {
+
+  .card-body {
+    padding-top: 0;
+  }
+
+  & + & {
+    margin-top: 25px;
+  }
+
+  .text {
+    margin-top: 20px;
+
+    border-left: 6px solid #e1e4e6;
+    padding-left: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-bottom: 20px;
+  }
+
+  .phrase {
+    margin-top: 20px;
+  }
+
+  .accordion {
+    margin-top: 20px;
+  }
+}

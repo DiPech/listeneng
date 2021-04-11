@@ -1,0 +1,22 @@
+version: "3.5"
+
+volumes:
+  volume_database:
+    driver: local
+    name: ${DOCKER_DATABASE_VOLUME}
+
+services:
+  database:
+    image: ${COMMON_PREFIX}-${DOCKER_DATABASE}
+    container_name: ${DOCKER_DATABASE_CONTAINER}
+    restart: always
+    networks:
+      - network_common
+    ports:
+      - ${APP_DATABASE_PORT}:5432
+    volumes:
+      - volume_database:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=${APP_DATABASE_BASE}
+      - POSTGRES_USER=${APP_DATABASE_USER}
+      - POSTGRES_PASSWORD=${APP_DATABASE_PASS}

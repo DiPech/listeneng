@@ -1,0 +1,57 @@
+.dragging {
+  .buttons {
+    display: none;
+  }
+}
+
+.entries {
+  .ghost {
+    opacity: 0.5;
+    background: #c8ebfb;
+  }
+}
+
+.entry {
+  position: relative;
+  display: block;
+  padding: 20px;
+  border: 1px solid var(--gray);
+  border-radius: 5px;
+
+  margin-top: 10px;
+  margin-bottom: 10px;
+
+  .drag, .delete {
+    position: absolute;
+    top: 1px;
+    cursor: pointer;
+  }
+
+  .drag {
+    left: 5px;
+  }
+
+  .delete {
+    right: 5px;
+  }
+
+  .info {
+    position: absolute;
+    top: 1px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  &.TEXT {
+    background-color: rgba(251, 248, 200, 0.2);
+  }
+
+  &.PHRASE {
+    background-color: rgba(200, 213, 251, 0.2);
+  }
+
+  &.DIVIDER {
+    background-color: rgba(168, 168, 168, 0.2);
+  }
+
+}

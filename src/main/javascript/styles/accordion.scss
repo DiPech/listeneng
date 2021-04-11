@@ -1,0 +1,11 @@
+.accordion {
+  .card-header {
+    color: var(--gray);
+  }
+}
+
+.accordion.compact {
+  .card-header {
+    padding: 0 0.5rem;
+  }
+}

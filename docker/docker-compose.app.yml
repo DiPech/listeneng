@@ -1,0 +1,36 @@
+version: "3.5"
+
+volumes:
+  volume_ssl:
+    driver: local
+
+services:
+  app:
+    image: ${COMMON_PREFIX}-${DOCKER_APP}
+    container_name: ${DOCKER_APP_CONTAINER}
+    restart: always
+    networks:
+      - network_common
+    ports:
+      - ${DOCKER_APP_PORT}:8080
+    depends_on:
+      - "database"
+  http-proxy:
+    image: umputun/nginx-le:latest
+    container_name: ${DOCKER_HTTP_PROXY_CONTAINER}
+    restart: always
+    networks:
+      - network_common
+    ports:
+      - ${DOCKER_HTTP_PROXY_PORT}:80
+      - 443:443
+    volumes:
+      - volume_ssl:/etc/nginx/ssl
+      - ./${DOCKER_HTTP_PROXY}/build/nginx.conf:/etc/nginx/service.conf
+    depends_on:
+      - "app"
+    environment:
+      - TZ=Europe/Moscow
+      - LETSENCRYPT=true
+      - LE_EMAIL=dmitry.pechkovsky@gmail.com
+      - LE_FQDN=${APP_DOMAIN}

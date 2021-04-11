@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+script="$1"
+shift
+args="$@"
+
+./bin/${script}.sh ${args}

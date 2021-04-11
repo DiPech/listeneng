@@ -1,0 +1,39 @@
+.phrase {
+
+  background-color: white;
+
+  textarea[disabled] {
+    background-color: transparent !important;
+  }
+
+  .btn {
+    z-index: 100;
+    border-color: #ced4d9;
+  }
+
+  .textarea.is-invalid, .textarea:focus {
+    z-index: 5000;
+  }
+
+  .input-group.phrase {
+    .btn, .textarea {
+      border-bottom-right-radius: 0;
+    }
+
+    .textarea {
+      border-bottom-left-radius: 0;
+    }
+  }
+
+  .input-group.translation {
+    margin-top: -1px;
+
+    .btn, .textarea {
+      border-top-left-radius: 0;
+    }
+
+    .textarea {
+      border-top-right-radius: 0;
+    }
+  }
+}
